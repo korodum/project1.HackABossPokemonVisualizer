@@ -1,22 +1,26 @@
 'use strict';
 
-const input = document.getElementById('search');
+const fs = require('fs');
+
+const input = document.getElementById('search')
 
 console.log(input.value);
 const pokemons = [];
-const search = async () => {
+const search = async (input) => {
   try {
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon?limit=1126`
     );
     const data = await response.json();
-    pokemons.push(data.results);
-  } catch (err) {
+    pokemons.push(...data.results);
+    console.log(pokemons)
+    } catch (err) {
     console.error(err);
   }
-};
+}
+;
 search();
-console.log(pokemons[0]);
+
 input.addEventListener('keypress', (e) => {
   e.key === 'Enter' ? search() : console.error('error');
 });
