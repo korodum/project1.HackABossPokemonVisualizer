@@ -1,11 +1,11 @@
 'use strict';
-import { getAllPokemons, loadPkmn, filteredPokemons, pokemons, pkmnList } from "./modules/Filter.module.js";
+import { getAllPokemonNames, loadPkmn, filteredPokemons, pokemons, pkmnList } from "./modules/Filter.module.js";
 
 
 const input = document.getElementById('search');
 
 
-getAllPokemons()
+getAllPokemonNames()
 
 input.addEventListener('input', function() {
   const filteredPkmn = filteredPokemons(pokemons, input.value);

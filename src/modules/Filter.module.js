@@ -4,7 +4,7 @@ let pokemons = []
 
 const pkmnList =  document.getElementById('pokemon-list')
 
-function getAllPokemons() {
+function getAllPokemonNames() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
     .then((res) => res.json())
     .then((data) => {
@@ -31,4 +31,4 @@ function filteredPokemons (pokemons, input) {
   return pokemons.filter((pokemon) => pokemon.toLowerCase().includes(input.toLowerCase()))
 }
 
-export {getAllPokemons, loadPkmn, filteredPokemons,pokemons, pkmnList}
+export {getAllPokemonNames, loadPkmn, filteredPokemons,pokemons, pkmnList}
