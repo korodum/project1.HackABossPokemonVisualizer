@@ -1,37 +1,41 @@
 'use strict';
-
+const pkmnList =  document.getElementById('pokemon-list')
 const input = document.getElementById('search');
-const button = document.querySelector('button');
 
-const getAllPokemons = async () => {
-  try {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=1126`
-    );
-    const data = await response.json();
-    return await data.results;
-  } catch (err) {
-    console.error(err);
-  }
-};
+let pokemons = []
 
-const filteredPokemons = async (keyword) => {
-  const pokemons = await getAllPokemons()
-  return  pokemons.filter((pokemon) => {
-      return pokemon.name.includes(keyword.toLowerCase());
+function getAllPokemons() {
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
+    .then((res) => res.json())
+    .then((data) => {
+
+      pokemons = data.results.map((pokemon) => pokemon.name)
+      pokemons.sort()
+      console
+      loadPkmn(pokemons, pkmnList)
+    });
+}
+
+
+
+function loadPkmn(data, element) {
+  if (data) {
+    element.innerHTML = '';
+    let innerElement = '';
+    data.forEach((item) => {
+      innerElement += `
+        <li>${item}</li>`
     })
-};
-filteredPokemons('char')
-.then((data) => {
-  console.log(data)
-})
-console.log();
-button.addEventListener('submit', (e) => {
+    element.innerHTML = innerElement;
+  }
+}
 
-})
+function filteredPokemons (pokemons, input) {
+  return pokemons.filter((pokemon) => pokemon.toLowerCase().includes(input.toLowerCase()))
+}
+getAllPokemons()
 
-input.addEventListener('keypress', (e) => {
-  e.key === 'Enter'
-    ? search()
-    : setTimeout(filteredPokemons(pokemons, input.value), 5000);
-});
+input.addEventListener('input', function() {
+  const filteredPkmn = filteredPokemons(pokemons, input.value);
+  loadPkmn(filteredPkmn, pkmnList);
+})
