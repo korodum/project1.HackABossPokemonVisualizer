@@ -1,8 +1,7 @@
 'use strict';
 
 const input = document.getElementById('search');
-
-console.log(input.value);
+const button = document.querySelector('button');
 
 const getAllPokemons = async () => {
   try {
@@ -10,26 +9,26 @@ const getAllPokemons = async () => {
       `https://pokeapi.co/api/v2/pokemon?limit=1126`
     );
     const data = await response.json();
-    console.log(data);
-    return await pokemons.push(...data.results);
+    return await data.results;
   } catch (err) {
     console.error(err);
   }
 };
 
-getAllPokemons();
-
-let pokemons = [];
-
-const filteredPokemons = async (pokemons, query) => {
-  const awaitResults = await Promise.all(
-    pokemons.filter((pokemon) => {
-      return pokemon.name.indexOf(query.toLowerCase()) !== -1;
+const filteredPokemons = async (keyword) => {
+  const pokemons = await getAllPokemons()
+  return  pokemons.filter((pokemon) => {
+      return pokemon.name.includes(keyword.toLowerCase());
     })
-  );
-  console.log(awaitResults);
 };
-console.log(setTimeout(filteredPokemons(pokemons, 'char'), 5000));
+filteredPokemons('char')
+.then((data) => {
+  console.log(data)
+})
+console.log();
+button.addEventListener('submit', (e) => {
+
+})
 
 input.addEventListener('keypress', (e) => {
   e.key === 'Enter'
