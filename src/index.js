@@ -1,4 +1,5 @@
 'use strict';
+
 const pkmnList =  document.getElementById('pokemon-list')
 const input = document.getElementById('search');
 
@@ -8,7 +9,6 @@ function getAllPokemons() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
     .then((res) => res.json())
     .then((data) => {
-
       pokemons = data.results.map((pokemon) => pokemon.name)
       pokemons.sort()
       console
