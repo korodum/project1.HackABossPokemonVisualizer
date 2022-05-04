@@ -1,6 +1,6 @@
 'use strict';
 
-let pokemons = []
+let pokemonNames = []
 
 const pkmnList =  document.getElementById('pokemon-list')
 
@@ -8,10 +8,10 @@ function getAllPokemonNames() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
     .then((res) => res.json())
     .then((data) => {
-      pokemons = data.results.map((pokemon) => pokemon.name)
-      pokemons.sort()
+      pokemonNames = data.results.map((pokemon) => pokemon.name)
+      pokemonNames.sort()
       console
-      loadPkmn(pokemons, pkmnList)
+      loadPkmn(pokemonNames, pkmnList)
     });
 }
 
@@ -27,8 +27,8 @@ function loadPkmn(data, element) {
   }
 }
 
-function filteredPokemons (pokemons, input) {
-  return pokemons.filter((pokemon) => pokemon.toLowerCase().includes(input.toLowerCase()))
+function filteredPokemons (pokemonNames, input) {
+  return pokemonNames.filter((pokemonName) => pokemonName.toLowerCase().includes(input.toLowerCase()))
 }
 
-export {getAllPokemonNames, loadPkmn, filteredPokemons,pokemons, pkmnList}
+export {getAllPokemonNames, loadPkmn, filteredPokemons,pokemonNames, pkmnList}
