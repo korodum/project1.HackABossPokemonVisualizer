@@ -8,10 +8,8 @@ function getAllPokemonTypes() {
   fetch(`https://pokeapi.co/api/v2/type/${pkmType}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log('pokemonTypes', data);
       pokemonTypes = data.results.map((type) => type.name);
       pokemonTypes.sort();
-      console.log('POKEMON TYPES', pokemonTypes);
       console;
       loadPokemonTypes(pokemonTypes, typesList);
     });
@@ -29,19 +27,22 @@ function loadPokemonTypes(data, element) {
   }
 }
 
-/** 
-
-function filteredPokemons(pokemonNames, input) {
-  return pokemonNames.filter((pokemonName) =>
-    pokemonName.toLowerCase().includes(input.toLowerCase())
-  );
-}
-
-*/
+const filteringByType = (type) => {
+  fetch(`https://pokeapi.co/api/v2/type/${type}`)
+    .then((res) => res.json())
+    .then((data) => {
+      let filteredPokemonsByType = [];
+      data.pokemon.map((pokemon) => {
+        return filteredPokemonsByType.push(pokemon.pokemon);
+      });
+      console.log(filteredPokemonsByType);
+    });
+};
 
 export {
   getAllPokemonTypes,
   loadPokemonTypes,
+  filteringByType,
   pokemonTypes,
   typesList,
   pkmType,

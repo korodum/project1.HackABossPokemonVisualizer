@@ -9,8 +9,7 @@ import {
 import { getAllPokemons, getPokemonInfo, showPokemon,} from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
-  loadPokemonTypes,
-  pokemonTypes,
+  filteringByType,
   typesList,
   pkmType,
 } from './modules/FilterByType.module.js';
@@ -21,27 +20,31 @@ getAllPokemons();
 getPokemonInfo('charmander')
 showPokemon()
 
-input.addEventListener('input', function() {
+input.addEventListener('input', function () {
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
 
-//
-//
-//Recogemos todos los typos de pokémon y los pintamos
+//Recogemos todos los tipos de pokémon y los pintamos
 getAllPokemonTypes();
 
 //Click para seleccionar el tipo de pokémon elegido
 typesList.addEventListener('click', (e) => {
   const { target } = e;
   if (target.matches('li.type')) {
-    console.log('match motherfucker', target.innerText);
     let pkmType = target.innerText;
-    console.log(pkmType);
-    console.log(`pokemons del tipo ${pkmType}`, getAllPokemonTypes());
+    filteringByType(pkmType);
   } else {
     console.error('Error on target pokemon type');
   }
 });
 
-console.log(pkmType);
+pkmnList.addEventListener('click', (e) => {
+  const { target } = e;
+  if (target.matches('li.name')) {
+    console.log('funciona');
+    //fetch al pokemon para pintarlo en pantalla igual que con filterByType
+  } else {
+    console.log('no funciona');
+  }
+});
