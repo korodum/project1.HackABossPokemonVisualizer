@@ -6,8 +6,7 @@ const input = document.getElementById('search');
 
 
 getAllPokemonNames()
-getAllPokemons()
-
+getAllPokemons();
 input.addEventListener('input', function() {
   const filteredPkmn = filteredPokemons(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);

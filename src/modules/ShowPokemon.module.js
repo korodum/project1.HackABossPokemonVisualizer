@@ -9,7 +9,10 @@ function getAllPokemons() {
     .then((res) => res.json())
     .then((data) => {
       pokemons = data.results;
+      console.log(pokemons);
     });
 }
+
+function getPokemonInfo(input) {}
 
 export { getAllPokemons, pokemons };
