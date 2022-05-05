@@ -10,7 +10,6 @@ function getAllPokemonNames() {
     .then((data) => {
       pokemonNames = data.results.map((pokemon) => pokemon.name)
       pokemonNames.sort()
-      console
       loadPkmn(pokemonNames, pkmnList)
     });
 }
