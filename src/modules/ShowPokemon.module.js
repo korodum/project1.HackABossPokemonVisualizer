@@ -12,4 +12,9 @@ function getAllPokemons() {
     });
 }
 
+function getPokemonInfo (){
+
+}
+
+
 export {getAllPokemons, pokemons}

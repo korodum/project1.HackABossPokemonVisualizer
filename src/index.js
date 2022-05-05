@@ -12,7 +12,3 @@ input.addEventListener('input', function() {
   const filteredPkmn = filteredPokemons(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 })
-
-input.addEventListener('Enter', (e) => {
-  console.log('si')
-})
