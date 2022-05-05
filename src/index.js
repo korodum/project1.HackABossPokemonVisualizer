@@ -6,7 +6,7 @@ import {
   pokemonNames,
   pkmnList,
 } from './modules/FilterByName.module.js';
-import { getAllPokemons, getPokemonInfo, showPokemon, pkmnUrl } from './modules/ShowPokemon.module.js';
+import { getAllPokemons, getPokemonInfo, showPokemon,} from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
   loadPokemonTypes,
@@ -20,7 +20,6 @@ getAllPokemonNames();
 getAllPokemons();
 getPokemonInfo('charmander')
 showPokemon()
-console.log(pkmnUrl);
 
 input.addEventListener('input', function() {
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
