@@ -26,16 +26,8 @@ function loadPkmn(data, element) {
   }
 }
 
-function filteredPokemons(pokemonNames, input) {
-  return pokemonNames.filter((pokemonName) =>
-    pokemonName.toLowerCase().includes(input.toLowerCase())
-  );
+function filteredPokemonNames (pokemonNames, input) {
+  return pokemonNames.filter((pokemonName) => pokemonName.toLowerCase().includes(input.toLowerCase()))
 }
 
-export {
-  getAllPokemonNames,
-  loadPkmn,
-  filteredPokemons,
-  pokemonNames,
-  pkmnList,
-};
+export {getAllPokemonNames, loadPkmn, filteredPokemonNames,pokemonNames, pkmnList}

@@ -18,9 +18,8 @@ import {
 const input = document.getElementById('search');
 getAllPokemonNames();
 getAllPokemons();
-
 input.addEventListener('input', function () {
-  const filteredPkmn = filteredPokemons(pokemonNames, input.value);
+  const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
 
