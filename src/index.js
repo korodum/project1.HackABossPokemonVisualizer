@@ -17,7 +17,7 @@ import {
 const input = document.getElementById('search');
 getAllPokemonNames();
 getAllPokemons();
-getPokemonInfo('charmander')
+getPokemonInfo()
 showPokemon()
 
 input.addEventListener('input', function () {

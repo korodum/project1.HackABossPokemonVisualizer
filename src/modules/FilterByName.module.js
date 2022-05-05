@@ -8,8 +8,7 @@ function getAllPokemonNames() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      pokemonNames = data.results.map((pokemon) => pokemon);
+      pokemonNames = data.results.map((pokemon) => pokemon.name);
       pokemonNames.sort();
       loadPkmn(pokemonNames, pkmnList);
     });
@@ -17,12 +16,11 @@ function getAllPokemonNames() {
 
 function loadPkmn(data, element) {
   if (data) {
-    console.log(data);
     element.innerHTML = '';
     let innerElement = '';
     data.forEach((item) => {
       innerElement += `
-      <li class="name">${item.name}</li>
+      <li class="name">${item}</li>
       `;
     });
     element.innerHTML = innerElement;

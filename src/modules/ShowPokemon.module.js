@@ -33,11 +33,9 @@ async function getPokemonInfo (input) {
 async function showPokemon (input) {
   try {
     const pkmn = await getPokemonInfo(input);
-    console.log(pkmn)
     const pkmnRes = await fetch(pkmn.url)
     const pkmnData = await pkmnRes.json()
-    console.log(pkmnData);
-    return pkmnData
+    return name.innerText = pkmnData.species.name
   } catch (error) {
     console.error(error);
   }
