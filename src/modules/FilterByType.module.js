@@ -38,15 +38,6 @@ const filteringByType = (type) => {
       console.log(filteredPokemonsByType);
     });
 };
-/** 
-
-function filteredPokemons(pokemonNames, input) {
-  return pokemonNames.filter((pokemonName) =>
-    pokemonName.toLowerCase().includes(input.toLowerCase())
-  );
-}
-
-*/
 
 export {
   getAllPokemonTypes,

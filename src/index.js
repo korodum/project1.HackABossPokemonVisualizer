@@ -45,4 +45,12 @@ typesList.addEventListener('click', (e) => {
   }
 });
 
-console.log(pkmType);
+pkmnList.addEventListener('click', (e) => {
+  const { target } = e;
+  if (target.matches('li.name')) {
+    console.log('funciona');
+    //fetch al pokemon para pintarlo en pantalla igual que con filterByType
+  } else {
+    console.log('no funciona');
+  }
+});
