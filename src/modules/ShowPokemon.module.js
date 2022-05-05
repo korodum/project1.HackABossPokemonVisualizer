@@ -2,25 +2,45 @@
 
 const name = document.getElementById('pokemon-name')
 
-let pokemons = []
+const info =[]
 
-function getAllPokemons() {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
-    .then((res) => res.json())
-    .then((data) => {
-      pokemons = data.results
-      console.log(pokemons)
-    });
+async function getAllPokemons() {
+  try {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
+    const data = await response.json()
+
+    return await data.results
+  } catch (error) {
+    console.error(error);
+  }
+
+
+
 }
 
-function getPokemonInfo (pokemons, input) {
-  getAllPokemons()
-    .then((pokemons) => {
-      pokemons.filter((pokemon) => {
-        pokemon.name.toLowerCase().includes(input.toLowerCase)
-      })
-    })
+async function getPokemonInfo (input) {
+  try {
+    const pkmns = await getAllPokemons()
+      for (const pkmn of pkmns) {
+
+        if(pkmn.name.toLowerCase() === input.toLowerCase()){
+          return await pkmn.url
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
 }
 
+async function showPokemon () {
+  try {
+    const pkmn = await getPokemonInfo()
 
-export {getAllPokemons, pokemons}
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+export {getAllPokemons /*showPokemon*/, getPokemonInfo,}
