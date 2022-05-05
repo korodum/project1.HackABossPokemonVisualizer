@@ -2,7 +2,7 @@
 
 const name = document.getElementById('pokemon-name')
 
-const info =[]
+const pkmnUrl =[]
 
 async function getAllPokemons() {
   try {
@@ -24,7 +24,7 @@ async function getPokemonInfo (input) {
       for (const pkmn of pkmns) {
 
         if(pkmn.name.toLowerCase() === input.toLowerCase()){
-          return await pkmn.url
+          return await pkmnUrl.push(pkmn.url)
       }
     }
   } catch (error) {
@@ -35,7 +35,6 @@ async function getPokemonInfo (input) {
 
 async function showPokemon () {
   try {
-    const pkmn = await getPokemonInfo()
 
   } catch (error) {
     console.error(error);
@@ -43,4 +42,4 @@ async function showPokemon () {
 
 }
 
-export {getAllPokemons /*showPokemon*/, getPokemonInfo,}
+export {getAllPokemons , showPokemon, getPokemonInfo, pkmnUrl}
