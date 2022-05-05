@@ -13,7 +13,7 @@ function getAllPokemons() {
     });
 }
 
-function getPokemonInfo (input) {
+function getPokemonInfo (pokemons, input) {
 
 }
 
