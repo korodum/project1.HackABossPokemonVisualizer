@@ -2,11 +2,11 @@
 import {
   getAllPokemonNames,
   loadPkmn,
-  filteredPokemons,
+  filteredPokemonNames,
   pokemonNames,
   pkmnList,
-} from './modules/Filter.module.js';
-import { getAllPokemons, pokemons } from './modules/ShowPokemon.module.js';
+} from './modules/FilterByName.module.js';
+import { getAllPokemons, getPokemonInfo } from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
   loadPokemonTypes,
