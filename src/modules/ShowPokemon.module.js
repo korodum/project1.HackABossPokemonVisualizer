@@ -14,7 +14,12 @@ function getAllPokemons() {
 }
 
 function getPokemonInfo (pokemons, input) {
-
+  getAllPokemons()
+    .then((pokemons) => {
+      pokemons.filter((pokemon) => {
+        pokemon.name.toLowerCase().includes(input.toLowerCase)
+      })
+    })
 }
 
 
