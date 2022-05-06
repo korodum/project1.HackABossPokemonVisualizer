@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./src/index.js"></script>
-  <link rel="stylesheet" href="./styles/style.css">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./src/index.js" defer></script>
+    <script type="module" src="./src//modules/FilterByName.module.js"></script>
+    <script type="module" src="./src/modules/ShowPokemon.module.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Pokemon</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>POKEDEX</h1>
+      </header>
+      <form action="" method="get">
+        <input type="text" value="" id="search" />
+        <button id="submit-btn" name="">search</button>
+      </form>
+      <ul id="pokemon-list"></ul>
+      <form>
+        <header>
+          <img src="" alt="" />
+        </header>
+        <fieldset>
+          <label for="pokemon-name"><h2>Pokemon name</h2></label>
+          <img src="" alt="pokemon frontal image" id="front-image">
+          <img src="" alt="pokemon back image" id="back-image">
+          <input type="text" value="" id="pokemon-name">
+        </fieldset>
+        <fieldset>
+          <label for="height"><h2>Height</h2></label>
+          <input type="text" value="" id="height">
+          <label for="weight"><h2>Weight</h2></label>
+          <input type="text" value="" id="weight">
+        </fieldset>
+        <fieldset>
+          <label for="base-stats"><h2>Base Stats</h2></label>
+          <label for="hp"><h3>HP</h3></label>
+          <input type="text" value="" id="hp">
+          <label for="attack"><h3>Attack</h3></label>
+          <input type="text" value="" id="attack">
+          <label for="defense"><h3>Defense</h3></label>
+          <input type="text" value="" id="defense">
+          <label for="special-attack"><h3>Special Attack</h3></label>
+          <input type="text" value="" id="special-attack">
+          <label for="special-defense"><h3>Special Defense</h3></label>
+          <input type="text" value="" id="special-defense">
+          <label for="speed"><h3>Speed</h3></label>
+          <input type="text" value="" id="speed">
+        </fieldset>
+        <fieldset>
+          <label for="types"><h2>types</h2></label>
+          <ul id="pkmn-types">
 
-</body>
+          </ul>
+        </fieldset>
+      </form>
+    </main>
+    <section id="filters">
+      <h3>POKEMÓNS BY TYPE</h3>
+      <ul id="types-list"></ul>
+    </section>
+  </body>
 </html>

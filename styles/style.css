@@ -1,5 +1,13 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+/*###### POKEMON LIST #######*/
+#pokemon-list {
+  list-style: none;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
 }
