@@ -15,12 +15,16 @@ import {
 } from './modules/FilterByType.module.js';
 
 const input = document.getElementById('search');
+const submitBtn = document.getElementById('submit-btn')
+
+
 getAllPokemonNames();
-getAllPokemons();
-getPokemonInfo()
-showPokemon('hitmonchan')
+
+
+
 
 input.addEventListener('input', function () {
+  console.log(input.value)
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
@@ -38,6 +42,11 @@ typesList.addEventListener('click', (e) => {
     console.error('Error on target pokemon type');
   }
 });
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+  showPokemon(input.value)
+})
 
 pkmnList.addEventListener('click', (e) => {
   const { target } = e;
