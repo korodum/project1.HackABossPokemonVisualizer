@@ -20,21 +20,39 @@
         <input type="submit" value="search" />
       </form>
       <ul id="pokemon-list"></ul>
-      <div>
+      <form>
         <header>
           <img src="" alt="" />
         </header>
-        <h2 id="pokemon-name">Pokemon name</h2>
+        <fieldset>
+          <label for="pokemon-name"><h2>Pokemon name</h2></label>
 
-        <ul id="baseStats">
-          <h3>Base stats</h3>
+          <input type="text" value="" id="pokemon-name">
+        </fieldset>
+        <fieldset>
+          <label for="height"><h2>Height</h2></label>
+          <input type="text" value="" id="height">
+          <label for="weight"><h2>Weight</h2></label>
+          <input type="text" value="" id="weight">
+        </fieldset>
+        <fieldset>
+          <label for="base-stats"><h2>Base Stats</h2></label>
+          <label for="hp"><h3>HP</h3></label>
+          <input type="text" value="" id="hp">
+          <input type="text" value="" id="attack">
+          <input type="text" value="" id="defense">
+          <input type="text" value="" id="special-attack">
+          <input type="text" value="" id="special-defense">
+          <input type="text" value="" id="speed">
+
+        </fieldset>
+      </form>
         </ul>
         <ul id="types">
           <h3>Types</h3>
           <li></li>
           <li></li>
         </ul>
-      </div>
     </main>
     <section id="filters">
       <h3>POKEMÓNS BY TYPE</h3>
