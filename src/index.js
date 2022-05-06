@@ -19,14 +19,14 @@ const submitBtn = document.getElementById('submit-btn')
 
 
 getAllPokemonNames();
+console.log(pkmnNameLi)
+//Recogemos todos los tipos de pokémon y los pintamos
+getAllPokemonTypes();
 
 input.addEventListener('input', function () {
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
-
-//Recogemos todos los tipos de pokémon y los pintamos
-getAllPokemonTypes();
 
 //Click para seleccionar el tipo de pokémon elegido
 typesList.addEventListener('click', (e) => {
@@ -40,9 +40,9 @@ typesList.addEventListener('click', (e) => {
 });
 
 submitBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  pkmnTypes.innerHTML=''
-  showPokemon(input.value)
+  e.preventDefault();º
+  pkmnTypes.innerHTML='';
+  showPokemon(input.value);
 
 })
 
