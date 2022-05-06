@@ -6,7 +6,7 @@ import {
   pokemonNames,
   pkmnList,
 } from './modules/FilterByName.module.js';
-import { getAllPokemons, getPokemonInfo, showPokemon,} from './modules/ShowPokemon.module.js';
+import { getAllPokemons, getPokemonInfo, showPokemon, pkmnTypes} from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
   filteringByType,
@@ -20,11 +20,7 @@ const submitBtn = document.getElementById('submit-btn')
 
 getAllPokemonNames();
 
-
-
-
 input.addEventListener('input', function () {
-  console.log(input.value)
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
@@ -45,7 +41,9 @@ typesList.addEventListener('click', (e) => {
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault()
+  pkmnTypes.innerHTML=''
   showPokemon(input.value)
+
 })
 
 pkmnList.addEventListener('click', (e) => {
