@@ -11,7 +11,7 @@ const specialDefense = document.getElementById('special-defense')
 const speed = document.getElementById('speed')
 const frontImg = document.getElementById('front-image')
 const backImg = document.getElementById('back-image')
-const types = document.getElementById('pkmn-type')
+const pkmnTypes = document.getElementById('pkmn-types')
 
 async function getAllPokemons() {
   try {
@@ -41,6 +41,7 @@ async function getPokemonInfo (input) {
   }
 }
 
+
 async function showPokemon (input) {
   try {
     const pkmn = await getPokemonInfo(input);
@@ -57,11 +58,11 @@ async function showPokemon (input) {
     speed.value = pkmnData.stats[5].base_stat
     frontImg.src = pkmnData.sprites.front_default
     backImg.src = pkmnData.sprites.back_default
-    for (const type of pkmnData.types) {
+    for (const pkmnType of pkmnData.types) {
       const type =document.createElement('li')
-      type.innerT= type.type.name
+      type.innerText = pkmnType.type.name
+      pkmnTypes.append(type)
     }
-    types.appendChild(type)
   } catch (error) {
     console.error(error);
   }
