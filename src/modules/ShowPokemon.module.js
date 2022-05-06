@@ -3,12 +3,15 @@
 const name = document.getElementById('pokemon-name')
 const height = document.getElementById('height')
 const weight = document.getElementById('weight')
-const hp =document.getElementById('hp')
-const attack =document.getElementById('attack')
-const defense =document.getElementById('defense')
-const specialAttack =document.getElementById('special-attack')
-const specialDefense =document.getElementById('special-defense')
-const speed =document.getElementById('speed')
+const hp = document.getElementById('hp')
+const attack = document.getElementById('attack')
+const defense = document.getElementById('defense')
+const specialAttack = document.getElementById('special-attack')
+const specialDefense = document.getElementById('special-defense')
+const speed = document.getElementById('speed')
+const frontImg = document.getElementById('front-image')
+const backImg = document.getElementById('back-image')
+const types = document.getElementById('pkmn-type')
 
 async function getAllPokemons() {
   try {
@@ -52,7 +55,13 @@ async function showPokemon (input) {
     specialAttack.value = pkmnData.stats[3].base_stat
     specialDefense.value = pkmnData.stats[4].base_stat
     speed.value = pkmnData.stats[5].base_stat
-
+    frontImg.src = pkmnData.sprites.front_default
+    backImg.src = pkmnData.sprites.back_default
+    for (const type of pkmnData.types) {
+      const type =document.createElement('li')
+      type.innerT= type.type.name
+    }
+    types.appendChild(type)
   } catch (error) {
     console.error(error);
   }

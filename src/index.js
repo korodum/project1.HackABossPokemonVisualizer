@@ -18,7 +18,7 @@ const input = document.getElementById('search');
 getAllPokemonNames();
 getAllPokemons();
 getPokemonInfo()
-showPokemon('mew')
+showPokemon('charmander')
 
 input.addEventListener('input', function () {
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
