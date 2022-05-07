@@ -46,18 +46,55 @@ async function showPokemon(input) {
     const pkmn = await getPokemonInfo(input);
     const pkmnRes = await fetch(pkmn.url);
     const pkmnData = await pkmnRes.json();
-    console.log(pkmnData);
-    name.innerHTML = pkmnData.species.name.toUpperCase();
-    height.innerHTML = `${pkmnData.height / 10} meters`;
-    weight.innerHTML = `${pkmnData.weight / 10} kilos`;
-    hp.innerHTML = pkmnData.stats[0].base_stat;
-    attack.innerHTML = pkmnData.stats[1].base_stat;
-    defense.innerHTML = pkmnData.stats[2].base_stat;
-    specialAttack.innerHTML = pkmnData.stats[3].base_stat;
-    specialDefense.innerHTML = pkmnData.stats[4].base_stat;
-    speed.innerHTML = pkmnData.stats[5].base_stat;
-    frontImg.src = pkmnData.sprites.front_default;
-    backImg.src = pkmnData.sprites.back_default;
+    const pokemonCard = document.querySelector('aside#pokemon-card');
+    pokemonCard.innerHTML = `
+                <header>
+                  <img src="${
+                    pkmnData.sprites.back_default
+                  }" alt="pokemon back image" id="back-image" />
+                  <img src="${
+                    pkmnData.sprites.front_default
+                  }" alt="pokemon frontal image" id="front-image" />
+                </header>
+                <h2 id="pokemon-name">${pkmnData.species.name.toUpperCase()}</h2>
+                <ul>
+                  <h3>BASE STATS</h3>
+                  <li>
+                    <p>HP</p>
+                    <p >${pkmnData.stats[0].base_stat}</p>
+                  </li>
+                  <li>
+                    <p>ATTACK</p>
+                    <p >${pkmnData.stats[1].base_stat}</p>
+                  </li>
+                  <li>
+                    <p>DEFENSE</p>
+                    <p >${pkmnData.stats[2].base_stat}</p>
+                  </li>
+                  <li>
+                    <p>SPECIAL ATTACK</p>
+                    <p >${pkmnData.stats[3].base_statzz}</p>
+                  </li>
+                  <li>
+                    <p>SPECIAL DEFENSE</p>
+                    <p >${pkmnData.stats[4].base_stat}</p>
+                  </li>
+                  <li>
+                    <p>SPEED</p>
+                    <p >${pkmnData.stats[5].base_stat}</p>
+                  </li>
+                  <li>
+                    <p>HEIGHT</p>
+                    <p >${pkmnData.height / 10} meters</p>
+                  </li>
+                  <li>
+                    <p>WEIGHT</p>
+                    <p >${pkmnData.weight / 10} kilos</p>
+                  </li>
+                </ul>
+                
+    `;
+
     for (const pkmnType of pkmnData.types) {
       const type = document.createElement('li');
       type.innerText = pkmnType.type.name;
