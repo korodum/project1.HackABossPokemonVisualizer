@@ -61,27 +61,48 @@ async function showPokemon(input) {
                   <h3>BASE STATS</h3>
                   <li>
                     <p>HP</p>
-                    <p >${pkmnData.stats[0].base_stat}</p>
+                    <div>
+                      <p>${pkmnData.stats[0].base_stat}</p>
+                      <div style="
+                            width:${pkmnData.stats[0].base_stat}%">
+                      </div>
+                    </div>
                   </li>
                   <li>
                     <p>ATTACK</p>
-                    <p >${pkmnData.stats[1].base_stat}</p>
+                    <div>
+                      <p >${pkmnData.stats[1].base_stat}</p>
+                      <div style="
+                            width:${pkmnData.stats[1].base_stat}%"></div>
+                    </div>
                   </li>
                   <li>
                     <p>DEFENSE</p>
-                    <p >${pkmnData.stats[2].base_stat}</p>
+                    <div>
+                      <p >${pkmnData.stats[2].base_stat}</p>
+                      <div style="width:${pkmnData.stats[2].base_stat}%"></div>
+                    </div>
                   </li>
                   <li>
                     <p>SPECIAL ATTACK</p>
-                    <p >${pkmnData.stats[3].base_stat}</p>
+                    <div>
+                      <p >${pkmnData.stats[3].base_stat}</p>
+                      <div style="width:${pkmnData.stats[3].base_stat}%"></div>
+                    </div>
                   </li>
                   <li>
                     <p>SPECIAL DEFENSE</p>
-                    <p >${pkmnData.stats[4].base_stat}</p>
+                    <div>
+                      <p >${pkmnData.stats[4].base_stat}</p>
+                      <div style="width:${pkmnData.stats[4].base_stat}%"></div>
+                    </div>
                   </li>
                   <li>
                     <p>SPEED</p>
-                    <p >${pkmnData.stats[5].base_stat}</p>
+                    <div>
+                      <p >${pkmnData.stats[5].base_stat}</p>
+                      <div style="width:${pkmnData.stats[5].base_stat}%;"></div>
+                    </div>
                   </li>
                   <li>
                     <p>HEIGHT</p>

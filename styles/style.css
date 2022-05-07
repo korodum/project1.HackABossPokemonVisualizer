@@ -90,6 +90,22 @@ aside#pokemon-card > ul > li {
   display: flex;
   padding: 0.5rem;
 }
-aside#pokemon-card > ul > li > p:first-child {
+aside#pokemon-card > ul > li > p:first-of-type {
   width: 50%;
+}
+aside#pokemon-card > ul > li > div > p {
+  color: #f7f7f7;
+  position: absolute;
+  padding: 0.2rem 1rem;
+  line-height: 1;
+}
+aside#pokemon-card > ul > li > div {
+  width: 50%;
+  height: 1.5rem;
+  background-color: #c4c4c4;
+}
+aside#pokemon-card > ul > li > div > div {
+  width: 0%;
+  height: 1.5rem;
+  background-color: #9e3a1a;
 }
