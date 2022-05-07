@@ -3,7 +3,12 @@
 const typesList = document.getElementById('types-list');
 let pokemonTypes = [];
 let pkmType = '';
+let pokemonTypesList = document.getElementById(
+  'pokemon-filtered-by-types-list'
+);
+let pokemonList = document.getElementById('pokemon-list');
 
+console.log('pokemon list', pokemonTypesList);
 function getAllPokemonTypes() {
   fetch(`https://pokeapi.co/api/v2/type/${pkmType}`)
     .then((res) => res.json())
@@ -27,16 +32,25 @@ function loadPokemonTypes(data, element) {
   }
 }
 
-const filteringByType = (type) => {
-  fetch(`https://pokeapi.co/api/v2/type/${type}`)
-    .then((res) => res.json())
-    .then((data) => {
-      let filteredPokemonsByType = [];
-      data.pokemon.map((pokemon) => {
-        return filteredPokemonsByType.push(pokemon.pokemon);
-      });
-      console.log(filteredPokemonsByType);
-    });
+let filteredPokemonsByType = [];
+const filteringByType = async (type) => {
+  let res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+  let data = await res.json();
+  console.log(data);
+  data.pokemon.map((pokemon) => {
+    filteredPokemonsByType.push(pokemon.pokemon);
+  });
+  paintPokemonsByType();
+  console.log(filteredPokemonsByType);
+  return filteredPokemonsByType;
+};
+
+const paintPokemonsByType = async () => {
+  filteredPokemonsByType.map((pokemon) => {
+    const pokemonTypes = document.createElement('li');
+    pokemonTypes.innerText = pokemon.name;
+    pokemonTypesList.append(pokemonTypes);
+  });
 };
 
 export {
@@ -46,10 +60,4 @@ export {
   pokemonTypes,
   typesList,
   pkmType,
-  /** 
-   * 
-  filteredPokemons,
-  pokemonNames,
-  pkmnList,
-  */
 };
