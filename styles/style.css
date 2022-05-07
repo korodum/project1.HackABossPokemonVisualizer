@@ -1,13 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+/*
+----------------------------------
+GENERAL RULES
+----------------------------------
+*/
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+}
+h1 {
+  font-size: 2.5em;
+  color: #fff;
+}
 
-/*###### POKEMON LIST #######*/
+/*
+-------------------------------------
+HEADER
+-------------------------------------
+*/
+main > header {
+  background-color: #aa3131;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+header > input {
+  max-width: 12em;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  color: #2e2e2e;
+}
+
+/*
+-------------------------------------
+POKEMON LIST 
+-------------------------------------
+*/
 #pokemon-list {
   list-style: none;
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#pokemon-list > li {
+  background-color: #c4c4c4;
+  margin: 0.6rem 0;
+  width: 80%;
+  padding: 1rem;
+  color: #f7f7f7;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+
+/*
+-----------------------------------------------------
+POKEMON CARD
+-----------------------------------------------------
+*/
+aside#pokemon-card {
+  background-color: #f6f6f6;
+  color: #9e3a1a;
+}
+aside > header {
+  background-color: #9e3a1a;
+  display: flex;
+  justify-content: center;
+}
+aside > header > img {
+  width: 150px;
 }
