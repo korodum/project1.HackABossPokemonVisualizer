@@ -19,7 +19,7 @@ const submitBtn = document.getElementById('submit-btn')
 
 
 getAllPokemonNames();
-console.log(pkmnNameLi)
+console.log()
 //Recogemos todos los tipos de pokémon y los pintamos
 getAllPokemonTypes();
 
@@ -40,7 +40,7 @@ typesList.addEventListener('click', (e) => {
 });
 
 submitBtn.addEventListener('click', (e) => {
-  e.preventDefault();º
+  e.preventDefault();
   pkmnTypes.innerHTML='';
   showPokemon(input.value);
 
