@@ -43,15 +43,20 @@ submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   pkmnTypes.innerHTML='';
   showPokemon(input.value);
+  input.value = ''
 
 })
 
 pkmnList.addEventListener('click', (e) => {
   const { target } = e;
   if (target.matches('li.name')) {
-    console.log('funciona');
-    //fetch al pokemon para pintarlo en pantalla igual que con filterByType
-  } else {
+    input.value= target.innerText
+    pkmnList.innerHTML=''
+    showPokemon(input.value)
+    input.value = ''
+    } else {
     console.log('no funciona');
   }
 });
+
+console.log(pkmnList)
