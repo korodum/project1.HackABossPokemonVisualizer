@@ -73,7 +73,7 @@ async function showPokemon(input) {
                   </li>
                   <li>
                     <p>SPECIAL ATTACK</p>
-                    <p >${pkmnData.stats[3].base_statzz}</p>
+                    <p >${pkmnData.stats[3].base_stat}</p>
                   </li>
                   <li>
                     <p>SPECIAL DEFENSE</p>
