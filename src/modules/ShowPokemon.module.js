@@ -68,4 +68,4 @@ async function showPokemon (input) {
   }
 }
 
-export {getAllPokemons , showPokemon, getPokemonInfo,}
+export {getAllPokemons , showPokemon, getPokemonInfo, pkmnTypes}

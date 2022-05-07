@@ -6,7 +6,7 @@ import {
   pokemonNames,
   pkmnList,
 } from './modules/FilterByName.module.js';
-import { getAllPokemons, getPokemonInfo, showPokemon,} from './modules/ShowPokemon.module.js';
+import { getAllPokemons, getPokemonInfo, showPokemon, pkmnTypes} from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
   filteringByType,
@@ -15,18 +15,18 @@ import {
 } from './modules/FilterByType.module.js';
 
 const input = document.getElementById('search');
+const submitBtn = document.getElementById('submit-btn')
+
+
 getAllPokemonNames();
-getAllPokemons();
-getPokemonInfo()
-showPokemon('hitmonchan')
+console.log(pkmnNameLi)
+//Recogemos todos los tipos de pokémon y los pintamos
+getAllPokemonTypes();
 
 input.addEventListener('input', function () {
   const filteredPkmn = filteredPokemonNames(pokemonNames, input.value);
   loadPkmn(filteredPkmn, pkmnList);
 });
-
-//Recogemos todos los tipos de pokémon y los pintamos
-getAllPokemonTypes();
 
 //Click para seleccionar el tipo de pokémon elegido
 typesList.addEventListener('click', (e) => {
@@ -38,6 +38,13 @@ typesList.addEventListener('click', (e) => {
     console.error('Error on target pokemon type');
   }
 });
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();º
+  pkmnTypes.innerHTML='';
+  showPokemon(input.value);
+
+})
 
 pkmnList.addEventListener('click', (e) => {
   const { target } = e;
