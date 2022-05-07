@@ -46,6 +46,7 @@ async function showPokemon(input) {
     const pkmn = await getPokemonInfo(input);
     const pkmnRes = await fetch(pkmn.url);
     const pkmnData = await pkmnRes.json();
+    console.log(pkmnData);
     name.innerHTML = pkmnData.species.name.toUpperCase();
     height.innerHTML = `${pkmnData.height / 10} meters`;
     weight.innerHTML = `${pkmnData.weight / 10} kilos`;
