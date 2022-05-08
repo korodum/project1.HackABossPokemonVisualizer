@@ -52,6 +52,7 @@ pkmnList.addEventListener('click', (e) => {
   if (target.matches('li.name')) {
     input.value= target.innerText
     pkmnList.innerHTML=''
+    pkmnTypes.innerHTML= ''
     showPokemon(input.value)
     input.value = ''
     } else {
