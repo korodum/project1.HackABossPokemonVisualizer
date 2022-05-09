@@ -131,20 +131,20 @@ TYPES LIST
 ----------------------------------------------------------
 */
 
-section#filter-screen {
+section.filter-screen {
   text-align: center;
   position: fixed;
+  right: -100%;
   bottom: 0;
   width: 100%;
   height: 80vh;
   background-color: #f7f7f7;
   padding: 1rem;
-  transition-duration: 1s;
+  transition-duration: 0.4s;
   transition-timing-function: ease-in-out;
-  transform: translateX(200vh);
 }
-section.in {
-  transform: translateX(100vh);
+section.filter-screen.in {
+  right: 0;
 }
 ul#types-list {
   display: flex;

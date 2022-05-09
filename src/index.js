@@ -23,7 +23,7 @@ import {
 const input = document.getElementById('search');
 const submitBtn = document.getElementById('submit-btn');
 const btnFilter = document.getElementById('btn-filter');
-const filterScreen = document.getElementById('filter-screen');
+const filterScreen = document.querySelector('.filter-screen');
 
 getAllPokemonNames();
 console.log();
