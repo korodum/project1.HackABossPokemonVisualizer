@@ -12,10 +12,13 @@ import {
   filteringByType,
   typesList,
   pkmType,
+  loadPokemonTypes,
+  filteredPokemonsByType
 } from './modules/FilterByType.module.js';
 
 const input = document.getElementById('search');
 const submitBtn = document.getElementById('submit-btn')
+
 
 
 getAllPokemonNames();
@@ -30,10 +33,14 @@ input.addEventListener('input', function () {
 
 //Click para seleccionar el tipo de pokémon elegido
 typesList.addEventListener('click', (e) => {
+
   const { target } = e;
   if (target.matches('li.type')) {
     let pkmType = target.innerText;
+    pkmnList.innerHTML = ''
     filteringByType(pkmType);
+    console.log(filteredPokemonsByType);
+    loadPokemonTypes(filteredPokemonsByType, pkmnList)
   } else {
     console.error('Error on target pokemon type');
   }
