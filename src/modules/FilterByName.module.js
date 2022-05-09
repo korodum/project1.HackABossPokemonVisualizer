@@ -1,18 +1,23 @@
 'use strict';
 
+import { getAllPokemons, getPokemonInfo } from './ShowPokemon.module.js'
+
 let pokemonNames = [];
 
 const pkmnList = document.getElementById('pokemon-list');
 
-function getAllPokemonNames() {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('data.results', data.results);
-      pokemonNames = data.results.map((pokemon) => pokemon.name);
-      //pokemonNames.sort();
-      loadPkmn(pokemonNames, pkmnList);
-    });
+async function getAllPokemonNames() {
+  try {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1126')
+    const data = await response.json()
+    pokemonNames = data.results.map((pokemon) => pokemon.name)
+    pokemonNames.sort();
+
+        loadPkmn(pokemonNames, pkmnList);
+
+  } catch (error) {
+
+  }
 }
 
 function loadPkmn(data, element) {
@@ -23,6 +28,7 @@ function loadPkmn(data, element) {
       innerElement += `
       <li class="name">${item}</li>
       `;
+
     });
     element.innerHTML = innerElement;
   }
