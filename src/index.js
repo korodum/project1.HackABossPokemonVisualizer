@@ -6,22 +6,27 @@ import {
   pokemonNames,
   pkmnList,
 } from './modules/FilterByName.module.js';
-import { getAllPokemons, getPokemonInfo, showPokemon, pkmnTypes} from './modules/ShowPokemon.module.js';
+import {
+  getAllPokemons,
+  getPokemonInfo,
+  showPokemon,
+  pkmnTypes,
+} from './modules/ShowPokemon.module.js';
 import {
   getAllPokemonTypes,
   filteringByType,
   typesList,
   loadPokemonTypes,
-  filteredPokemonsByType
+  filteredPokemonsByType,
 } from './modules/FilterByType.module.js';
 
 const input = document.getElementById('search');
-const submitBtn = document.getElementById('submit-btn')
-
-
+const submitBtn = document.getElementById('submit-btn');
+const btnFilter = document.getElementById('btn-filter');
+const filterScreen = document.getElementById('filter-screen');
 
 getAllPokemonNames();
-console.log()
+console.log();
 //Recogemos todos los tipos de pokémon y los pintamos
 getAllPokemonTypes();
 
@@ -32,14 +37,13 @@ input.addEventListener('input', function () {
 
 //Click para seleccionar el tipo de pokémon elegido
 typesList.addEventListener('click', (e) => {
-
   const { target } = e;
   if (target.matches('li.type')) {
-    pkmnList.innerHTML = ''
+    pkmnList.innerHTML = '';
     let pkmType = target.innerText;
     filteringByType(pkmType);
     console.log(filteredPokemonsByType);
-    loadPokemonTypes(filteredPokemonsByType, pkmnList)
+    loadPokemonTypes(filteredPokemonsByType, pkmnList);
   } else {
     console.error('Error on target pokemon type');
   }
@@ -47,24 +51,30 @@ typesList.addEventListener('click', (e) => {
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  pkmnList.innerHTML = ''
-  pkmnTypes.innerHTML='';
+  pkmnList.innerHTML = '';
+  pkmnTypes.innerHTML = '';
   showPokemon(input.value);
-  input.value = ''
-
-})
+  input.value = '';
+});
 
 pkmnList.addEventListener('click', (e) => {
   const { target } = e;
   if (target.matches('li.name, li.type')) {
-    input.value= target.innerText
-    pkmnList.innerHTML=''
-    pkmnTypes.innerHTML= ''
-    showPokemon(input.value)
-    input.value = ''
-    } else {
+    input.value = target.innerText;
+    pkmnList.innerHTML = '';
+    pkmnTypes.innerHTML = '';
+    showPokemon(input.value);
+    input.value = '';
+  } else {
     console.log('no funciona');
   }
 });
 
-console.log(pkmnList)
+console.log(pkmnList);
+
+//Mostrar filters
+
+btnFilter.addEventListener('click', (e) => {
+  console.log(filterScreen);
+  filterScreen.classList.toggle('in');
+});

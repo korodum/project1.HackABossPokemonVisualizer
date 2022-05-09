@@ -12,6 +12,7 @@ GENERAL RULES
 body {
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
+  height: 100%;
 }
 h1 {
   font-size: 2.5em;
@@ -130,25 +131,33 @@ TYPES LIST
 ----------------------------------------------------------
 */
 
-section#filters {
-  display: flex;
-  align-items: flex-end;
+section#filter-screen {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80vh;
+  background-color: #f7f7f7;
+  padding: 1rem;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(200vh);
+}
+section.in {
+  transform: translateX(100vh);
 }
 ul#types-list {
   display: flex;
-  position: fixed;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  bottom: 0;
   padding: 1rem 0.5rem;
-  background-color: #f7f7f7;
 }
 
 ul#types-list li {
   list-style: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100px;
   background-color: #c4c4c4;
   margin: 0.5rem;
