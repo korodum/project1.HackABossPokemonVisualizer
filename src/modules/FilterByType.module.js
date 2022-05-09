@@ -2,7 +2,7 @@
 
 const typesList = document.getElementById('types-list');
 let pokemonTypes = [];
-let filteredPokemonsByType = [];
+;
 
 async function getAllPokemonTypes() {
   try {
@@ -34,6 +34,7 @@ function loadPokemonTypes(data, element) {
 async function filteringByType(type) {
   const res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
   const data = await res.json()
+  let filteredPokemonsByType = []
   filteredPokemonsByType = data.pokemon.map((pokemon) => pokemon.pokemon.name)
   filteredPokemonsByType.sort()
 
@@ -47,5 +48,4 @@ export {
   filteringByType,
   pokemonTypes,
   typesList,
-  filteredPokemonsByType
 };
