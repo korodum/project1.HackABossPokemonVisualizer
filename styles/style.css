@@ -89,11 +89,13 @@ aside#pokemon-card > header {
   background-color: #aa3131;
   display: flex;
   justify-content: center;
+  margin: 0 0 1rem 0;
 }
-aside#pokemon-card > header > img {
-  width: 350px;
+aside#pokemon-card > img {
+  width: 150px;
   margin: 0;
   padding: 0;
+  transform: translateY(2rem);
 }
 aside#pokemon-card h2:first-of-type {
   text-align: center;
@@ -116,7 +118,7 @@ aside#pokemon-card > ul > li > div > p {
   line-height: 1;
 }
 aside#pokemon-card > ul > li > div {
-  width: 50%;
+  width: 40%;
   height: 1.5rem;
   background-color: #c4c4c4;
 }

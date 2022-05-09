@@ -35,19 +35,18 @@ async function showPokemon(input) {
     const pkmn = await getPokemonInfo(input);
     const pkmnRes = await fetch(pkmn.url);
     const pkmnData = await pkmnRes.json();
+    console.log(pkmnData);
     const pokemonCard = document.querySelector('aside#pokemon-card');
     let types = pkmnData.types.map((type) => type.type.name);
 
     pokemonCard.innerHTML = `
-                <header>
-                  <img src="${
-                    pkmnData.sprites.back_default
-                  }" alt="pokemon back image" id="back-image" />
-                  <img src="${
-                    pkmnData.sprites.front_default
-                  }" alt="pokemon frontal image" id="front-image" />
-                </header>
-                <h2 id="pokemon-name">${pkmnData.species.name.toUpperCase()}</h2>
+                <h2 id="pokemon-name">${pkmnData.species.name.toUpperCase()}</h2>  
+                <img src="${
+                  pkmnData.sprites.back_default
+                }" alt="pokemon back image" id="back-image" />
+                <img src="${
+                  pkmnData.sprites.front_default
+                }" alt="pokemon frontal image" id="front-image" />
                 <ul>
                   <h3>BASE STATS</h3>
                   <li>
