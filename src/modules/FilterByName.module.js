@@ -1,7 +1,5 @@
 'use strict';
 
-import { getAllPokemons, getPokemonInfo } from './ShowPokemon.module.js';
-
 let pokemonNames = [];
 
 const pkmnList = document.getElementById('pokemon-list');
