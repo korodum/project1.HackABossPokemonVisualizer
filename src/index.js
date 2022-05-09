@@ -11,7 +11,6 @@ import {
   getAllPokemonTypes,
   filteringByType,
   typesList,
-  pkmType,
   loadPokemonTypes,
   filteredPokemonsByType
 } from './modules/FilterByType.module.js';
@@ -36,8 +35,8 @@ typesList.addEventListener('click', (e) => {
 
   const { target } = e;
   if (target.matches('li.type')) {
-    let pkmType = target.innerText;
     pkmnList.innerHTML = ''
+    let pkmType = target.innerText;
     filteringByType(pkmType);
     console.log(filteredPokemonsByType);
     loadPokemonTypes(filteredPokemonsByType, pkmnList)
@@ -48,6 +47,7 @@ typesList.addEventListener('click', (e) => {
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  pkmnList.innerHTML = ''
   pkmnTypes.innerHTML='';
   showPokemon(input.value);
   input.value = ''
@@ -56,7 +56,7 @@ submitBtn.addEventListener('click', (e) => {
 
 pkmnList.addEventListener('click', (e) => {
   const { target } = e;
-  if (target.matches('li.name')) {
+  if (target.matches('li.name, li.type')) {
     input.value= target.innerText
     pkmnList.innerHTML=''
     pkmnTypes.innerHTML= ''
