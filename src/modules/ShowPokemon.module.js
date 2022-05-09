@@ -1,5 +1,6 @@
 'use strict';
 
+const name = document.getElementById('pokemon-name');
 const pkmnTypes = document.getElementById('pkmn-types');
 
 async function getAllPokemons() {

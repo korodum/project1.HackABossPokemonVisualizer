@@ -1,5 +1,4 @@
 'use strict';
-
 let pokemonNames = [];
 
 const pkmnList = document.getElementById('pokemon-list');
