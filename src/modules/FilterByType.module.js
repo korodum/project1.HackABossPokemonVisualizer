@@ -33,26 +33,26 @@ function loadPokemonTypes(data, element) {
 }
 
 let filteredPokemonsByType = [];
-const filteringByType = async (type) => {
+async function filteringByType(type) {
   let res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
   let data = await res.json();
-  console.log(data);
+  filteredPokemonsByType = []
   data.pokemon.map((pokemon) => {
-    filteredPokemonsByType.push(pokemon.pokemon);
+    filteredPokemonsByType.push(pokemon.pokemon.name);
   });
-  paintPokemonsByType();
+  // paintPokemonsByType();
+  // console.log(paintPokemonsByType())
   console.log(filteredPokemonsByType);
   return filteredPokemonsByType;
-};
+}
 
-const paintPokemonsByType = async () => {
-  filteredPokemonsByType.map((pokemon) => {
-    const pokemonTypes = document.createElement('li');
-    pokemonTypes.innerText = pokemon.name;
-    pokemonTypesList.append(pokemonTypes);
-  });
-};
-
+// async function paintPokemonsByType() {
+//   filteredPokemonsByType.map((pokemon) => {
+//     const pokemonTypes = document.createElement('li');
+//     pokemonTypes.innerText = pokemon.name;
+//     pokemonTypesList.append(pokemonTypes);
+//   });
+// }
 export {
   getAllPokemonTypes,
   loadPokemonTypes,
