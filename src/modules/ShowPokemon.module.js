@@ -36,6 +36,8 @@ async function showPokemon(input) {
     const pkmnRes = await fetch(pkmn.url);
     const pkmnData = await pkmnRes.json();
     const pokemonCard = document.querySelector('aside#pokemon-card');
+    let types = pkmnData.types.map((type) => type.type.name);
+
     pokemonCard.innerHTML = `
                 <header>
                   <img src="${
@@ -101,15 +103,14 @@ async function showPokemon(input) {
                     <p>WEIGHT</p>
                     <p >${pkmnData.weight / 10} kilos</p>
                   </li>
+                  <li>
+                  <p>TYPES</p>
+                  ${types}
+                  </li>
                 </ul>
-
     `;
 
-    for (const pkmnType of pkmnData.types) {
-      const type = document.createElement('li');
-      type.innerText = pkmnType.type.name;
-      pkmnTypes.append(type);
-    }
+    console.log(pkmnTypes);
   } catch (error) {
     console.error(error);
   }
