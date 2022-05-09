@@ -1,17 +1,5 @@
 'use strict';
 
-const name = document.getElementById('pokemon-name');
-console.log(name);
-const height = document.getElementById('height');
-const weight = document.getElementById('weight');
-const hp = document.getElementById('hp');
-const attack = document.getElementById('attack');
-const defense = document.getElementById('defense');
-const specialAttack = document.getElementById('special-attack');
-const specialDefense = document.getElementById('special-defense');
-const speed = document.getElementById('speed');
-const frontImg = document.getElementById('front-image');
-const backImg = document.getElementById('back-image');
 const pkmnTypes = document.getElementById('pkmn-types');
 
 async function getAllPokemons() {
