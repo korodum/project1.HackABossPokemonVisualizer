@@ -102,7 +102,7 @@ async function showPokemon(input) {
                     <p >${pkmnData.weight / 10} kilos</p>
                   </li>
                 </ul>
-                
+
     `;
 
     for (const pkmnType of pkmnData.types) {
