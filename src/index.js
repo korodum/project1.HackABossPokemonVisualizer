@@ -41,7 +41,9 @@ typesList.addEventListener('click', async (e) => {
     pkmnList.innerHTML = '';
     let pkmType = target.innerText;
     const filteredPokemonsByType = await filteringByType(pkmType);
+    filterScreen.classList.remove('in')
     loadPokemonTypes(filteredPokemonsByType, pkmnList);
+
   } else {
     console.error('Error on target pokemon type');
   }
