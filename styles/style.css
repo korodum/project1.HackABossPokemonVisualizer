@@ -17,6 +17,7 @@ body {
 h1 {
   font-size: 2.5em;
   color: #fff;
+  cursor: pointer;
 }
 
 /*
@@ -55,6 +56,7 @@ header > div > button {
 header > div > button > img {
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 }
 /*
 -------------------------------------
@@ -79,6 +81,7 @@ ul#pokemon-list > li {
   color: #f7f7f7;
   border-radius: 0.5rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /*
@@ -91,6 +94,12 @@ aside#pokemon-card {
   color: #aa3131;
   padding: 0.5rem;
   margin: 0 0 2rem 0;
+  max-height: 80vh;
+  position: fixed;
+  right: 2rem;
+}
+aside#pokemon-card > ul > h3 {
+  text-align: center;
 }
 aside#pokemon-card > header {
   background-color: #aa3131;
@@ -98,22 +107,23 @@ aside#pokemon-card > header {
   justify-content: center;
   margin: 0 0 1rem 0;
 }
-aside#pokemon-card > img {
-  width: 150px;
+aside#pokemon-card > div {
+  text-align: center;
+}
+aside#pokemon-card > div > img {
   margin: 0;
   padding: 0;
-  transform: translateY(2rem);
 }
 aside#pokemon-card h2:first-of-type {
   text-align: center;
 }
 aside#pokemon-card > ul {
   font-weight: 300;
-  padding: 1.5rem 0.5rem;
+  padding: 1rem 0.5rem;
 }
 aside#pokemon-card > ul > li {
   display: flex;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 aside#pokemon-card > ul > li > p:first-of-type {
   width: 50%;
@@ -121,8 +131,9 @@ aside#pokemon-card > ul > li > p:first-of-type {
 aside#pokemon-card > ul > li > div > p {
   color: #f7f7f7;
   position: absolute;
-  padding: 0.2rem 1rem;
+  padding: 0.1rem 1rem;
   line-height: 1;
+  font-weight: semi-bold;
 }
 aside#pokemon-card > ul > li > div {
   width: 40%;
@@ -185,12 +196,14 @@ ul#types-list li {
 HEADER
 ----------------------------------------------------------------
 */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   main > header {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 12rem 1rem 2rem;
+    min-height: 4.2rem;
+    max-height: 4.2rem;
   }
   /*
   ----------------------------------------------------------------
@@ -207,6 +220,7 @@ HEADER
   */
   ul#pokemon-list {
     width: 50%;
+    padding: 5rem 0 0 0;
   }
   /*
   ----------------------------------------------------------------
@@ -215,7 +229,7 @@ HEADER
   */
   aside#pokemon-card {
     width: 45%;
-    margin: 10rem 0 2rem 0;
+    margin: 5rem 0 2rem 0;
     border-radius: 1rem;
     padding: 1.5rem 2.5rem;
     -webkit-box-shadow: 0px 0px 18px -7px #4a4a4a;

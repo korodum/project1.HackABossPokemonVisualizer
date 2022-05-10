@@ -39,21 +39,25 @@ async function showPokemon(input) {
     let types = pkmnData.types.map((type) => type.type.name);
 
     pokemonCard.innerHTML = `
-                <h2 id="pokemon-name">${pkmnData.species.name.toUpperCase()}</h2>  
-                <img src="${
-                  pkmnData.sprites.back_default
-                }" alt="pokemon back image" id="back-image" />
-                <img src="${
-                  pkmnData.sprites.front_default
-                }" alt="pokemon frontal image" id="front-image" />
+                <h2 id="pokemon-name">${pkmnData.species.name.toUpperCase()}</h2>
+                <div>
+                <img 
+                  src="${pkmnData.sprites.back_default}" 
+                  alt="pokemon back image" 
+                  id="back-image" />
+                <img 
+                  src="${pkmnData.sprites.front_default}" 
+                  alt="pokemon frontal image" 
+                  id="front-image" 
+                />
+                </div>
                 <ul>
                   <h3>BASE STATS</h3>
                   <li>
                     <p>HP</p>
                     <div>
                       <p>${pkmnData.stats[0].base_stat}</p>
-                      <div style="
-                            width:${pkmnData.stats[0].base_stat}%">
+                      <div style="width:${pkmnData.stats[0].base_stat}%">
                       </div>
                     </div>
                   </li>
@@ -61,8 +65,7 @@ async function showPokemon(input) {
                     <p>ATTACK</p>
                     <div>
                       <p >${pkmnData.stats[1].base_stat}</p>
-                      <div style="
-                            width:${pkmnData.stats[1].base_stat}%"></div>
+                      <div style="width:${pkmnData.stats[1].base_stat}%"></div>
                     </div>
                   </li>
                   <li>

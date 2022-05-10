@@ -58,7 +58,9 @@ submitBtn.addEventListener('click', (e) => {
   pkmnTypes.innerHTML = '';
   showPokemon(input.value);
   input.value = '';
-  if (window.width >= 1024) getAllPokemonNames();
+  if (window.innerWidth >= 1024) {
+    getAllPokemonNames();
+  }
 });
 //Click en la lista para seleccionar el pokemon
 pkmnList.addEventListener('click', (e) => {
@@ -69,7 +71,9 @@ pkmnList.addEventListener('click', (e) => {
     pkmnTypes.innerHTML = '';
     showPokemon(input.value);
     input.value = '';
-    if (window.width >= 1024) getAllPokemonNames();
+    if (window.innerWidth >= 1024) {
+      getAllPokemonNames();
+    }
   } else {
     console.log('no funciona');
   }
