@@ -23,6 +23,7 @@ const input = document.getElementById('search');
 const submitBtn = document.getElementById('submit-btn');
 const btnFilter = document.getElementById('btn-filter');
 const filterScreen = document.querySelector('.filter-screen');
+const h1 = document.getElementById('refresh')
 
 getAllPokemonNames();
 console.log();
@@ -78,3 +79,8 @@ btnFilter.addEventListener('click', (e) => {
   console.log(filterScreen);
   filterScreen.classList.toggle('in');
 });
+
+
+h1.addEventListener('click', (e) => {
+  location.reload()
+})
