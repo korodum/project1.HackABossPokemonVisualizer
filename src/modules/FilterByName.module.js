@@ -10,7 +10,7 @@ async function getAllPokemonNames() {
       'https://pokeapi.co/api/v2/pokemon?limit=1126'
     );
     const data = await response.json();
-    pokemonNames = data.results.map((pokemon) => pokemon.name);
+    pokemonNames = data.results.map((pokemon) => pokemon.name.toUpperCase());
     pokemonNames.sort();
 
     loadPkmn(pokemonNames, pkmnList);

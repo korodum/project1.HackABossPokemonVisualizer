@@ -19,7 +19,7 @@ async function getAllPokemons() {
 async function getPokemonInfo(input) {
   try {
     const pkmns = await getAllPokemons();
-
+    console.log(pkmns);
     for (const pkmn of pkmns) {
       if (pkmn.name.toLowerCase() === input.toLowerCase()) {
         return pkmn;
@@ -35,7 +35,6 @@ async function showPokemon(input) {
     const pkmn = await getPokemonInfo(input);
     const pkmnRes = await fetch(pkmn.url);
     const pkmnData = await pkmnRes.json();
-    console.log(pkmnData);
     const pokemonCard = document.querySelector('aside#pokemon-card');
     let types = pkmnData.types.map((type) => type.type.name);
 
@@ -108,8 +107,6 @@ async function showPokemon(input) {
                   </li>
                 </ul>
     `;
-
-    console.log(pkmnTypes);
   } catch (error) {
     console.error(error);
   }
